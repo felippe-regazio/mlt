@@ -7,10 +7,11 @@ module.exports = function profile(req: Request, res: Response) {
   decodeJWT(token)
     .then((payload: any) => {
       const { error, data } = payload;
+      error && console.error(error);
 
       res
-        .status(error ? 401 : 200)
-        .json(data || {});
+        .status(200)
+        .json(data);
     })
     .catch(console.error);
 };

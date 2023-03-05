@@ -1,10 +1,12 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import jwt from 'jsonwebtoken';
 
 /**
  * This const defines the name to be used on the generated cookie that will store our JWT Tokens.
  * We gonna use tokens becase use Local Storage, despite being simpler, is potencialy unsecure.
  */
-export const JWT_COOKIE_NAME = 'mlt';
+export const JWT_COOKIE_NAME = process.env.JWT_COOKIE_NAME as string;
 
 /**
  * WARN:
@@ -13,7 +15,7 @@ export const JWT_COOKIE_NAME = 'mlt';
  * But for this project we are avoiding use DOTENV just for fast deployment and easier setup
  * You can generate a new SECRET by runnin on node: require('crypto').randomBytes(64).toString('hex')
  */
-export const JWT_SECRET = '09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611';
+export const JWT_SECRET = process.env.JWT_SECRET as string;
 
 /**
  * WARN:
@@ -32,6 +34,10 @@ export function encodeJWT(data: object) {
  */
 export function decodeJWT(token: string) {
   return new Promise(resolve => {
+    if (!token) {
+      return resolve({ error: 'No token provided', data: null });
+    }
+
     jwt.verify(token, JWT_SECRET, (error: any, data: any) => {
       error && console.error(error);
 

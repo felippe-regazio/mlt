@@ -11,6 +11,7 @@ import { Express } from 'express';
  */
 export const routes = (app: Express) => {
   app.get('/', require('./endpoints/index'));
-  app.get('/signin', require('./endpoints/signin'));
   app.get('/profile', require('./endpoints/profile'));
+  app.post('/login', require('./endpoints/login'));
+  app.post('/register', require('./endpoints/register'));
 }
