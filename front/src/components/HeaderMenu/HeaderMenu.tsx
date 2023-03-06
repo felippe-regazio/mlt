@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import useLoggedUser from '../../hooks/useLoggedUser';
 import { Link } from 'react-router-dom';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import { API } from '../../api/API';
 
 const HeaderMenuWrapper = styled.div`
   color: #444;
@@ -21,10 +22,28 @@ const HeaderMenuWrapper = styled.div`
       font-size: 24px;
     }
   }
+
+  .logged-menu {
+    display: flex;
+    gap: 4px;
+
+    a, [role=button] {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 `;
 
 export function HeaderMenu() {
   const [ loggedUser ] = useLoggedUser();
+
+  const signOut = () => {
+    API.get('/logout')
+      .then(() => (window.location.href = '/'))
+      .catch(console.error);
+  };
 
   return(
     <HeaderMenuWrapper>
@@ -35,12 +54,20 @@ export function HeaderMenu() {
       }
 
       {loggedUser.logged &&
-        <>
+        <div className="logged-menu">
           <p>
             {loggedUser.data.firstName}
             <HiOutlineUserCircle />
           </p>
-        </>
+
+          <p role="button" onClick={signOut}>
+            | Sair
+          </p>
+
+          <Link to="/buyings">
+            <p> | Compras</p>
+          </Link>
+        </div>
       }
     </HeaderMenuWrapper>
   )

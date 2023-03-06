@@ -49,7 +49,8 @@ export default function Register() {
     API.post('/login', data)
       .then((response: AxiosResponse) => {
         if (response.status === 200) {
-          window.location.href = '/';
+          const redirect = new URLSearchParams(window.location.search).get('redirect');
+          window.location.href = redirect || '/';
         } else {
           toast.error(response.statusText);
         }

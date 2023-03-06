@@ -23,7 +23,7 @@ module.exports = async function index(req: Request, res: Response) {
     const token = encodeJWT(userData);
   
     res
-      .cookie(JWT_COOKIE_NAME, token, { maxAge: 900000 })
+      .cookie(JWT_COOKIE_NAME, token, { maxAge: 900000000 })
       .status(200)
       .json({ success: true });
   }

@@ -1,4 +1,5 @@
 import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 import { Main } from "../components/Main/Main";
 import { HeaderMenu } from "../components/HeaderMenu/HeaderMenu";
 import { Link } from "react-router-dom";
@@ -16,7 +17,9 @@ export const DefaultLayout: React.FC<React.PropsWithChildren> = ({ children }) =
         { children }
       </Main>
 
-      <footer></footer>
+      <Footer>
+        <p>Some cool footer with useful information</p>
+      </Footer>
     </>
   )
 }
