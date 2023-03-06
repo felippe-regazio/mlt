@@ -52,7 +52,6 @@ export default function Product() {
   return(
     <DefaultLayout>
       <BuyingsWrapper>
-        
         <div className="buyings">
           <h1>Compras</h1>
         </div>
