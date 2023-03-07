@@ -52,10 +52,11 @@ const PaymentFormWrapper = styled.div`
 `;
 
 export function PaymentForm() {
-  const mp = (window as any).mp;
   const [ loggedUser ] = useLoggedUser();
-
+  
   useEffect(() => {
+    const mp = (window as any).mp;
+    
     const cardForm = mp.cardForm({
       amount: "100.5",
       iframe: true,

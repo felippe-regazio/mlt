@@ -3,7 +3,6 @@ import useLoggedUser from "../../hooks/useLoggedUser";
 import { Navigate } from "react-router-dom";
 import { DefaultLayout } from "../../layouts/Default";
 import { Accordion } from "../../components/Accordion/Accordion";
-import { Tilebox } from "../../components/Tilebox/Tilebox";
 import { useState } from "react";
 import { PaymentForm } from "../../components/PaymentForm/PaymentForm";
 
