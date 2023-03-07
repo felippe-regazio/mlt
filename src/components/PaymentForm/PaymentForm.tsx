@@ -173,7 +173,7 @@ export function PaymentForm() {
         <input 
           type="text" 
           id="form-checkout__cardholderName" 
-          defaultValue={`${loggedUser?.data?.firstName} ${loggedUser?.data?.lastName}`} 
+          defaultValue={`${loggedUser?.data?.firstName || ''} ${loggedUser?.data?.lastName || ''}`} 
         />
         
         <input type="email" id="form-checkout__cardholderEmail" defaultValue={loggedUser?.data?.email}/>
