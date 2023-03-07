@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 import useLoggedUser from "../../hooks/useLoggedUser";
 import { Navigate } from "react-router-dom";
 import { DefaultLayout } from "../../layouts/Default";
+import { useEffect, useState } from "react";
+import { API } from "../../api/API";
+import { Tilebox } from "../../components/Tilebox/Tilebox";
+import { dateParagraph } from "../../utils/utils";
 
 const BuyingsWrapper = styled.div`
   padding: 80px 0;
@@ -30,8 +34,17 @@ const BuyingsWrapper = styled.div`
   }
 `;
 
-export default function Product() {
+export default function Buyings() {
   const [ loggedUser ] = useLoggedUser();
+  const [ buyings, setBuyings ]: any = useState([]);
+
+  useEffect(() => {
+    API.get('/buyings')
+      .then((response: any) => {
+        setBuyings(response.data)
+      })
+      .catch(console.error);
+  }, []);
 
   if (loggedUser.loading || !loggedUser.retrievered) {
     return (
@@ -54,6 +67,15 @@ export default function Product() {
       <BuyingsWrapper>
         <div className="buyings">
           <h1>Compras</h1>
+
+          {buyings.map((buying: any) => (
+            <Tilebox>
+              <div>
+                <p><strong>{ buying.description }</strong></p>
+                <p><span style={{ textTransform: 'capitalize' }}>{buying.status}</span> - {dateParagraph(new Date(buying.date_created))}</p>
+              </div>
+            </Tilebox>
+          ))}
         </div>
       </BuyingsWrapper>
     </DefaultLayout>

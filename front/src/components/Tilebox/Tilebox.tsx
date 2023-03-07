@@ -12,7 +12,9 @@ const TileboxWrapper = styled.article`
   > span:first-of-type, label {
     display: flex;
     gap: 8px;
+    cursor: pointer;
     align-items: center;
+    margin: 0;
 
     input {
       margin: 0;

@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
+    "@types/mercadopago": "^1.5.8",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -13,6 +14,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "mercadopago": "^1.5.15",
     "mongoose": "^7.0.0"
   },
   "devDependencies": {

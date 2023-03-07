@@ -16,7 +16,9 @@ const AccordionWrapper = styled.div`
     > span:first-of-type, label {
       display: flex;
       gap: 8px;
+      cursor: pointer;
       align-items: center;
+      margin: 0;
 
       input {
         margin: 0;
@@ -59,7 +61,6 @@ export const Accordion: React.FC<React.PropsWithChildren<AccordionProps>> = ({ t
     >
       <div className="accordion__summary">
         <span>{ title }</span>
-        <span>a</span>
       </div>
 
       <div className="accordion__content">

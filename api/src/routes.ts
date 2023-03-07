@@ -1,4 +1,5 @@
 import { Express } from 'express';
+import { guard } from './jwt/guard';
 
 /**
  * Register available routes to the intire app, prefer this
@@ -12,8 +13,10 @@ import { Express } from 'express';
 export const routes = (app: Express) => {
   app.get('/', require('./endpoints/index'));
   app.get('/profile', require('./endpoints/profile'));
-  app.get('/logout', require('./endpoints/logout'));
+  app.get('/logout', guard, require('./endpoints/logout'));
+  app.get('/buyings', guard, require('./endpoints/buyings'));
   
   app.post('/login', require('./endpoints/login'));
   app.post('/register', require('./endpoints/register'));
+  app.post('/checkout', guard, require('./endpoints/checkout'));
 }

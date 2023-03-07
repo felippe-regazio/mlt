@@ -3,7 +3,7 @@ import { comparePassword } from '../functions';
 import { encodeJWT, JWT_COOKIE_NAME } from '../jwt/jwt';
 import Credentials from '../database/models/credentials';
 
-module.exports = async function index(req: Request, res: Response) {
+module.exports = async function login(req: Request, res: Response) {
   const data = req.body;
   const user = await Credentials.findOne({ email: data.email }).select('+password');
   const passok = user && await comparePassword(data.password, user?.password || '');

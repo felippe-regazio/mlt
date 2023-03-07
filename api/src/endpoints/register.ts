@@ -2,7 +2,7 @@ import { hashPassword } from '../functions';
 import { Request, Response } from 'express';
 import Credentials from '../database/models/credentials';
 
-module.exports = async function index(req: Request, res: Response) {
+module.exports = async function register(req: Request, res: Response) {
   const data = req.body;
   const emailAlreadyTaken = await Credentials.findOne({ email: data.email });
 

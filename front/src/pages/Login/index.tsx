@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { DefaultLayout } from "../../layouts/Default";
-import { Form, isEmail } from "../../components/Form/Form";
+import { Form } from "../../components/Form/Form";
+import { isEmail } from "../../utils/utils";
 import { FormEvent } from "react";
 import { toast } from 'react-toastify';
 import { API } from "../../api/API";

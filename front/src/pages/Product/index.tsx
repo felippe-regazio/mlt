@@ -108,7 +108,7 @@ export default function Product() {
             </h1>
             
             <h2 className="product-price">
-              R$1.000
+              R$100,50
             </h2>
 
             <p className="product-delivery">
