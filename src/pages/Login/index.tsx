@@ -50,6 +50,7 @@ export default function Register() {
     API.post('/login', data)
       .then((response: AxiosResponse) => {
         if (response.status === 200) {
+          localStorage.setItem('mlt', response?.data?.token);
           const redirect = new URLSearchParams(window.location.search).get('redirect');
           window.location.href = redirect || '/';
         } else {

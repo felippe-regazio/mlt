@@ -12,6 +12,7 @@ export const Header = styled.header`
   border-bottom: solid 1px #eee;
   box-sizing: border-box;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   p, a.logo {
     margin: 0;
@@ -22,6 +23,11 @@ export const Header = styled.header`
 
   a {
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 425px) {
+    display: block;
+    padding: 16px;
   }
 `;
 
