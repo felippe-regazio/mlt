@@ -68,7 +68,7 @@ export default function Buyings() {
         <div className="buyings">
           <h1>Compras</h1>
 
-          {buyings.map((buying: any) => (
+          {!!buyings && buyings.map((buying: any) => (
             <Tilebox>
               <div>
                 <p><strong>{ buying.description }</strong></p>
@@ -76,6 +76,10 @@ export default function Buyings() {
               </div>
             </Tilebox>
           ))}
+
+          {!buyings && 
+            <p>Nenhuma compra efetuada</p>
+          }
         </div>
       </BuyingsWrapper>
     </DefaultLayout>
