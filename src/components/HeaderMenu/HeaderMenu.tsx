@@ -40,6 +40,8 @@ export function HeaderMenu() {
   const [ loggedUser ] = useLoggedUser();
 
   const signOut = () => {
+    localStorage.removeItem('mlt');
+
     API.get('/logout')
       .then(() => (window.location.href = '/'))
       .catch(console.error);
