@@ -6,7 +6,7 @@ Test application for MELI
 
 https://mlt-front.herokuapp.com/
 
-## Run the backend
+## Running the Backend (API)
 
 If you will run this application locally, first you must run the backend locally. Instructions here:  
 
